@@ -20,6 +20,11 @@ new PolicyPack("aws-typescript", {
                     reportViolation("You should version your s3 bucket")
                         
                 }
+            }),
+            validateResourceOfType(aws.s3.Bucket, (bucket, args, reportViolation) => {
+                if(bucket.forceDestroy === true) {
+                    reportViolation("You shouldn't have force destroy turned on for your S3 bucket. You should empty the bucket before deleting.");
+                }
             })
         ],
     }],
