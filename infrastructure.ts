@@ -15,11 +15,7 @@ class infrastructure extends pulumi.ComponentResource {
                 ...standardTags,
                 Name: `${name}-bucket`
             },
-            acl: "private",
-            versioning: 
-            {
-                enabled: true
-            }
+            acl: "private"
         });
 
         // Create DynamoDB table
