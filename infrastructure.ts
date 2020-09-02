@@ -11,7 +11,6 @@ class infrastructure extends pulumi.ComponentResource {
 
         // Create an AWS resource (S3 Bucket)
         const bucket = new aws.s3.Bucket(`${name}-bucket`, {
-            forceDestroy: true,
             tags: {
                 ...standardTags,
                 Name: `${name}-bucket`
