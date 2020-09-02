@@ -15,6 +15,11 @@ class infrastructure extends pulumi.ComponentResource {
             tags: {
                 ...standardTags,
                 Name: `${name}-bucket`
+            },
+            acl: "private",
+            versioning: 
+            {
+                enabled: true
             }
         });
 
